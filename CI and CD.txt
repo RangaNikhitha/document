@@ -1,0 +1,166 @@
+Continuous Integration and Continuous Delivery:
+-------------------------------------------------
+ CI and CD will enable your organisation to bulid a better software and
+release it faster, at lower costs and be able to respond to the needs of
+customers faster.
+
+How value through IT company creates Software:
+----------------------------------------------
+Product Management-->Software Development-->Integration &Operation-->Quality Assurance
+
+Integration team:
+-----------------
+This team is responsible for integrating all the work from the different
+software development teams into one product. 
+Mainly integration team work with software development teams. 
+
+Once there was an integrated product, the operatons team takes this product
+and deploys it through the different environments.
+
+The operations teams is also responsible for making sure that the environments keep running well.
+
+Software development and deployment process:
+---------------------------------------------
+Software development teams create software for specific software modules and
+check the software into specific source control branches.
+The integration team merges these branches into the main line
+source control bucket once every iteration. They them bulid the code on thier own PC
+and pass along the resulting release and installation instructions to the
+operations team.
+The operation team takes the release and follows the instructions to install
+it onto different environments.
+
+In the software development process, there were some areas to improve upon.
+The integration takes a lot of effort and is error prone.It is only done once every iteration.
+which can result in lots of rework by the team as the feedback cycle is too long.
+Also creating the release and reproducing integration bugs is unreliable because the 
+integration team bulids the integrated code on their own PCs.
+There is a lots of potential problems with the current process
+There is a high chace of bugs, defects are found late, team might do lot of rework,difficult to reproduce the release
+
+To improve this we go through the "Continous integration".
+
+In the software development process, there were some areas to improve upon.
+The operations team gets a list of installaion instructions that they need to follow to install the software.
+Often these insttructions aren't 100% correct.leaving some room for interpretation to the team.
+This sometimes leads to errors.Where something should have been installed differently and now behaves differently.
+Also it's difficult to follow the instructions exactly the same for every environment.
+Sometimes steps are forgotten.
+All of this makes it so that deployments take a long time and are error prone.
+There's a high chance of errors during the deployment process.
+There is high chance of errors,Lots of effort in deployment,difficult to reproduce deployment,
+slow delivery of functionality,Inconsistency in environment.
+
+To improve this we go through the "Continous delivery".
+Continuous Integration:
+-------------------------
+def: 	     CI is a development practice that requires developers to integrate
+	code into a shared repository several times a day.this code tehn gets compiled
+	and tested by the build process.Tests can include unit tests,auomate UI tests, security tests.
+				(or)
+	     CI is the practice of merging all developers working copies to shared
+	mainline "several times a day." 
+	It was first named by "Grady Booch" in 1994.
+
+To do CI, the developers need to change how they work.
+They should now all use a central source control repository.THis will require them to integrate code themselves.
+That means that each team and each developer has to do a bit more work to make sure that their code works with te rest of the code.
+
+CI principles:
+---------------
+-->Have a single placce where all the code lives.
+	(This is usually in source control in a central repository that is main line)
+-->Everyone commits to the mainline everyday.
+	(All developers check in their code once in a day may be more)
+-->Automate the build process.
+	-Fix broken build immediately
+	-Make and keep the build fast
+-->Automate the testing process
+-->Everyone has access to the latest result
+--.Everyone can see everything.
+
+CI Benefits:
+-------------
+-->Integration takes less effort.
+	(bcz in this Every developer now integrated their owncode into the central code repository,
+	    instead of a dedicated team integrating whole branches into the central repository.)
+   (Every tym when code is checked in the build is trigered then the code will compiled and tested several tyms in a day
+   before this the code will tested and compiled once in a day).
+-->Issues will comeup more easily.
+--.Automation means less issues.
+-->The process is more visible.
+-->Improved team communication.
+-->The code is ready to be delivered more often.
+
+CI Accomplish:
+---------------
+Higher quality
+Faster Delivery
+Lower Costs
+More Flexibility
+
+Continuous Delivery:
+---------------------
+def:	CD is a software development discipline where software can be released
+	   to production at any time.
+
+Difference between Delivery and Deployment:
+----------------------------------------------
+Continuous delivery-->Software can be deployed to production at any time.
+Continuous deployment-->Software is automatically deployed to production all the time.
+
+
+In continuous delivery, we take this release and feed it into a release pipeline.
+This pipeline is an automated process,that is executed on a server.
+This process takes the release package and installs it with steps similar as those that were in the installation instructions.
+These steps are things like copy files to a certain location.reset the IAS server and soon.
+All of these steps together deploy the release to whatever environment we want,like dev,test,or production.
+
+There are developers that create code and commit this in to central source code repository.
+The operations team does the same with infrastructre as code. and with the scripts and configuration to automate the release pipeline.
+Developers and operations team people need to work closely together in a similar fashion.
+Developers want to create new things whereas operation team want everything to stay the same.
+
+The code for infrastructure scripts and the application is in source control.The build pipeline automatically picks this up,and compiles the code and tests it with automated tests.
+After this,the release pipeline can pick up the results and do things like create infrastructure, deploy the release to one or more environments,and potentially execute more automated tests.
+Potentially quality assurance can perform more tests that can't be executed automatically and can then decide to deploy the release to a subsequent environment, like production.
+Eventually the release is deployed on production,where users can start using it
+where as build pipeline is-- automated
+and Release pipeline is-- on demand
+
+CD principles:
+---------------
+-->Have continuous integration in place.
+-->Automate the environment.
+-->Automate the release process.
+-->Development and operation should work well together.
+
+Overview of continous delivery:
+--------------------------------
+Developers and operations people check in code and infrastructure as code into a central source code repository.
+This code gets compiled and tested in the build pipeline.
+Then infrastructure gets created or updated,and code is deployed to one or more environments and potentially automatically or manually tested before being promoted to the next environment.
+This gets new features in the hands of users,who then feedback to product manageement to start the process all over again.
+
+CD benifits:
+------------
+-->Releasing takes less effort
+-->Releasing is more
+	-Reliable
+	-Repeatable
+-->put control of release in the hands of business
+-->Release more often
+--.Get feedback earlier
+
+CD accomplish:
+---------------
+Higher quality
+Faster Delivery
+Lower Costs
+More Flexibility
+
+
+
+
+
+ 
